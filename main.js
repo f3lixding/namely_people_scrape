@@ -26,7 +26,7 @@ let peopleLeftMain = [];
     let date = new Date();
     for (let i = 0; i < peopleTableChildren.length; i++) {
         let location = peopleTableChildren[i].getElementsByClassName("location")[0]["innerText"];
-        let name = peopleTableChildren[i].getElementsByClassName("name")[0]["innerText"];
+        let name = peopleTableChildren[i].getElementsByClassName("name")[0]["innerText"].toLowerCase();
         
         // appending info
         // names
@@ -54,7 +54,7 @@ let peopleLeftMain = [];
 
     mostRecent = mostRecentRun;
 
-    download the most recent run
+    // download the most recent run
     (function (exportObj, exportName) {
         var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
         var downloadAnchorNode = document.createElement('a');
@@ -71,7 +71,7 @@ let peopleLeftMain = [];
         var curPeople = curJSON.people;
         var lastPeople = new Set(lastJSON.people);
         lastPeople.forEach(function(person) {
-            if(!curPeople.has(person)) {
+            if(!curPeople.has(person.toLowerCase())) {
                 peopleLeft.push(person);
             }
         });

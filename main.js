@@ -5,6 +5,7 @@ let mostRecent = {};
 let peopleLeftMain = [];
 (function (times, _callback) {
     // scrolling
+    // adding a new line here
     let myVar = setInterval(function () {
         window.scrollTo(0, document.body.scrollHeight);
         console.log("scrolling"); }, 1500);
